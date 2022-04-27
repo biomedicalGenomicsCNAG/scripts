@@ -2,7 +2,7 @@
 
 `cells<-table(sub$Tissue, Idents(sub))`
 
-## head(cells)
+### head(cells)
 ```
                       CD14+ CD16+   DC Macrophages_1 Macrophages_2 Platelet
   blood                  3717   201   43            31             0      467
@@ -26,12 +26,12 @@
 `sign_table= as.data.frame(sign_table)`
 
 `for(c in 1: ncol(cells)){
- `for (r in 1: nrow(cells)){`
-   `x=1-phyper(cells[r,c]-1, sum(cells[,c]), sum(cells)- sum(cells[,c]), sum(cells[r,]))` 
-   `sign_table[r,c]= paste(as.numeric(x))`
- `}`
-  `sign_table[,c]= as.numeric(sign_table[,c])`
-`}`
+ for (r in 1: nrow(cells)){
+  x=1-phyper(cells[r,c]-1, sum(cells[,c]), sum(cells)- sum(cells[,c]), sum(cells[r,])) 
+   sign_table[r,c]= paste(as.numeric(x))
+ }
+  sign_table[,c]= as.numeric(sign_table[,c])
+}`
 
 `row.names(sign_table) = row.names(cells)`
 `colnames(sign_table) = colnames(cells)`
